@@ -1,0 +1,146 @@
+.hero {
+    background: linear-gradient(135deg, #526D82, #27374D);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* navbar */
+
+/* style.css */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #111;
+    transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 1rem 2rem;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.dark-mode .navbar {
+    background-color: #1e1e1e;
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00bcd4;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.navbar-links li {
+    position: relative;
+}
+
+.navbar-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+}
+
+.navbar-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00bcd4;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navbar-links li a:hover::after {
+    width: 100%;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    min-width: 150px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 0.5rem 0;
+    z-index: 999;
+    flex-direction: column;
+}
+
+.dropdown-content li a {
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* Toggle Button (Hamburger) */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.navbar-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Responsive (HP/tablet) */
+@media (max-width: 768px) {
+    .navbar-links {
+        flex-direction: column;
+        background-color: #111;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-links.active {
+        max-height: 400px;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .dropdown:hover .dropdown-content {
+        position: static;
+    }
+}
